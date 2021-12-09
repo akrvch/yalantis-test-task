@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+    Where to go?
+{% endblock title %}
+{% block body %}
+    <div class="container">
+        <div class="card text-center shadow"
+             style="position: absolute; left: 0; right: 0; top: 50%; margin: 0 auto; transform: translate(0, -50%); max-width: 500px">
+            <h5 class="card-header">Choose where to go</h5>
+            <div class="card-body">
+                <p>
+                    <a href="{% url 'drivers_list_api' %}" class="btn btn-outline-primary">
+                        GET all drivers or create new one
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'drivers_list_api' %}?created_at__gte=10-11-2021" class="btn btn-outline-primary">
+                        GET drivers created_at__gte=10-11-2021
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'drivers_list_api' %}?created_at__lte=16-11-2021" class="btn btn-outline-primary">
+                        GET drivers created_at__lte=16-11-2021
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'driver_api' pk=1 %}" class="btn btn-outline-primary">
+                        GET, UPDATE, DELETE driver
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'vehicles_list_api' %}" class="btn btn-outline-primary">
+                        GET all vehicles or create new one
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'vehicles_list_api' %}?with_drivers=yes" class="btn btn-outline-primary">
+                        GET vehicles with driver
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'vehicles_list_api' %}?with_drivers=no" class="btn btn-outline-primary">
+                        GET vehicles without driver
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'vehicle_api' pk=1 %}" class="btn btn-outline-primary">
+                        GET, UPDATE, DELETE vehicle
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url 'vehicle_set_driver_api' pk=1 %}" class="btn btn-outline-primary">
+                        Set/remove driver from vehicle
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
